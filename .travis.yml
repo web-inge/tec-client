@@ -8,7 +8,7 @@ before_script:
 script:
   - npm run build
 after_success:
-  if: branch = master
+  if: branch = "master"
     - firebase deploy --token $FIREBASE_TOKEN
 
 
