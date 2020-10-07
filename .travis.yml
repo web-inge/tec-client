@@ -8,7 +8,8 @@ before_script:
 script:
   - npm run build
 after_success:
-  - TRAVIS_BRANCH = "master" && firebase deploy --token $FIREBASE_TOKEN
+  if: branch = master
+    - firebase deploy --token $FIREBASE_TOKEN
 
 
 
