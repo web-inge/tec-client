@@ -12,6 +12,8 @@ const LOGIN = {
 const DEFAULT = {
   component: views.Default,
   path: '*',
+  isPrivate: false,
+  isExact: false
 };
 
 export default [LOGIN, DEFAULT];

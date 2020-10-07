@@ -8,11 +8,12 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          {routes.map(({path, component, isPrivate}) => <AppRoute
+          {routes.map(({path, component, isPrivate, isExact}) => <AppRoute
             key={path}
             path={path}
             component={component}
             isPrivate={isPrivate}
+            isExact={isExact}
           />)}
         </Switch>
       </Router>
