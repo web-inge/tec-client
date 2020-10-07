@@ -1,6 +1,6 @@
-import { createActions } from "redux-actions";
+import { createActions } from 'redux-actions';
 
 export const { increment, decrement } = createActions({
-    INCREMENT: (amount = 1) => ({ amount}),
-    DECREMENT: (amount = 1) => ({amount: -amount})
-})
+  INCREMENT: (amount = 1) => ({ amount }),
+  DECREMENT: (amount = 1) => ({ amount: -amount }),
+});

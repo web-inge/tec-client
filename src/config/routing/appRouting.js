@@ -1,20 +1,27 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+// @flow
+import React from 'react';
+import { Route } from 'react-router-dom';
+
+type Props = {
+    component: any,
+    path: string,
+    isPrivate: boolean,
+    isExact: boolean,
+};
 
 export default function AppRoute({
   component: Component,
   path,
   isPrivate,
   isExact,
-  ...props
-}) {
+}: Props) {
   return (
-    <Route
-      path={path}
-      exact={isExact}
-      render={(props) =>
-        isPrivate && true ? <div>Login please</div> : <Component {...props} />
-      }
-    />
-  )
+        <Route
+            path={path}
+            exact={isExact}
+            render={() =>
+              isPrivate && true ? <div>Login please</div> : <Component />
+            }
+        />
+  );
 }

@@ -1,11 +1,9 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { increment, decrement } from './views/login/actions'
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import routes from './config/routing/routes';
 import AppRoute from './config/routing/appRouting';
 
-function App({count, increaseCounter, decreaseCounter}) {
+function App() {
   return (
     <div className="App">
       <Router>
