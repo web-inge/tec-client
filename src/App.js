@@ -1,46 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { connect } from 'react-redux';
-import { increment, decrement } from './container/login/actions'
+// import { connect } from 'react-redux';
+// import { increment, decrement } from './views/login/actions'
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import routes from './config/routing/routes';
+import AppRoute from './config/routing/appRouting';
 
 function App({count, increaseCounter, decreaseCounter}) {
-  console.log(count)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>1</p>
-        <button onClick={() => increaseCounter()}>Añadir</button>
-        <button onClick={() => decreaseCounter()}>Restar</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          {routes.map(({path, component, isPrivate}) => <AppRoute
+            key={path}
+            path={path}
+            component={component}
+            isPrivate={isPrivate}
+          />)}
+        </Switch>
+      </Router>
     </div>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    count: state.login,
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     count: state.login,
+//   }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    increaseCounter: () => dispatch(increment()),
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     increaseCounter: () => dispatch(increment()),
 
-    decreaseCounter: () => dispatch(decrement()),
-  }
-}
+//     decreaseCounter: () => dispatch(decrement()),
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
