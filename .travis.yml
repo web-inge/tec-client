@@ -4,7 +4,7 @@ node_js:
 install:
   - npm install -g firebase-tools
 before_script:
-  - npm run test -- --coverage
+  - CI=true npm run test
 script:
   - npm run build
 after_success:
