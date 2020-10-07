@@ -1,13 +1,6 @@
-// @flow
 import React from 'react';
+import { string, bool, elementType} from 'prop-types';
 import { Route } from 'react-router-dom';
-
-type Props = {
-    component: any,
-    path: string,
-    isPrivate: boolean,
-    isExact: boolean,
-};
 
 export default function AppRoute({
   component: Component,
@@ -25,3 +18,10 @@ export default function AppRoute({
         />
   );
 }
+
+AppRoute.propTypes = {
+  component: elementType.isRequired,
+  path: string.isRequired,
+  isPrivate: bool.isRequired,
+  isExact: bool.isRequired
+};
